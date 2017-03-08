@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="StyleLogin.css" rel="stylesheet">
+        <script src="loginScript.js"></script>
+    </head>
+    <body>
+
+        <div class="login">
+        <div class="login-triangle"></div>
+  
+        <h2 class="login-header">iScrum</h2>
+
+        <form class="login-container">
+            <p><input type="text" placeholder="User" id="user"></p>
+            <p><input type="password" placeholder="Password"></p>
+            <p>Registrate con Facebook</p>
+            <div id="fb-root"></div>
+                <script>(function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.8&appId=382680545445284";
+                fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));
+            </script>
+            <div class="fb-login-button" data-max-rows="2" data-size="small" data-show-faces="true" data-auto-logout-link="true"></div>
+        
+        <br> <br>
+
+        </form>
+        
+        </div>
+
+        <script>
+
+        window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '382680545445284',
+            cookie     : true,  // enable cookies to allow the server to access 
+                                // the session
+            xfbml      : true,  // parse social plugins on this page
+            version    : 'v2.8' // use graph api version 2.8
+            });
+
+        };
+    
+        (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        function checkLoginState() {
+            FB.getLoginStatus(function(response) {
+
+            });
+        }
+
+        </script>
+
+        <button type="" class="btnReg button" onclick="showReg()" >Registrarse</button>
+    
+        <div class="login" style="display: none" id="login">
+  
+        <h2 class="login-header" >Registro</h2>
+
+        <form class="login-container ">
+            <p><input type="text" placeholder="User" id="userR"></p>
+            <p><input type="text" placeholder="Name" id="nameR"></p>
+            <p><input type="password" placeholder="Password" ></p>
+            
+        
+            <button type="submit" class="btnLog button" >Crear Cuenta</button>
+        </form>
+        
+        
+        
+        </div>
+    </body>
+</html>
